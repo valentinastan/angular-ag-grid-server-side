@@ -1,0 +1,17 @@
+<p>server-side-model works!</p>
+<ag-grid-angular
+    #agGrid
+    style="width: 500px; height: 500px;"
+    id="myGrid"
+    class="ag-theme-alpine"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [rowModelType]="rowModelType"
+    [serverSideStoreType]="serverSideStoreType"
+    [pagination]="true"
+    [paginationPageSize]="paginationPageSize"
+    [cacheBlockSize]="cacheBlockSize"
+    [animateRows]="true"
+    [rowData]="rowData"
+    (gridReady)="onGridReady($event)"
+  ></ag-grid-angular>

@@ -1,0 +1,30 @@
+<h3>Product Form</h3>
+
+<form id="productForm" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <label for="name">Product name</label>
+  <input type="text" id="name" formControlName="name" />
+  <span
+    *ngIf="!productForm.get('name').valid && productForm.get('name').touched"
+  >
+    <span *ngIf="productForm.get('name').errors['minlength']"
+      >This name is invalid!</span
+    >
+    <span *ngIf="productForm.get('name').errors['required']"
+      >This field is required!</span
+    >
+  </span>
+  <br />
+  <label for="price">Price</label>
+  <input type="number" step="0.01" id="price" formControlName="price" />
+  <span
+    *ngIf="!productForm.get('price').valid && productForm.get('price').touched"
+  >
+    <span *ngIf="productForm.get('price').errors['min']"
+      >This price is invalid!</span
+    >
+    <span *ngIf="productForm.get('price').errors['required']"
+      >This field is required!</span
+    >
+  </span>
+  <button mat-raised-button color="primary" type="submit" [disabled]="!productForm.valid">Add</button>
+</form>

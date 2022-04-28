@@ -1,0 +1,10 @@
+#menu-button {
+  border: none;
+  background: none;
+  transition: 1s;
+}
+
+#menu-button:hover {
+  /* border: 2px solid rgb(130, 199, 255); */
+  background: rgb(130, 199, 255);
+}

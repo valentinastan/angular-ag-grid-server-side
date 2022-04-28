@@ -1,0 +1,46 @@
+<!-- <button mat-raised-button color="primary" (click)="getSelectedRows()">Get Selected Rows</button> -->
+<!-- <button mat-raised-button color="primary" (click)="onBtExport()">Export to Excel</button> -->
+<br />
+<div class="container">
+  <div class="columns">
+    <div>
+      <mat-button-toggle-group>
+        <mat-button-toggle (click)="getSelectedRows()"
+          >Get Selected Rows</mat-button-toggle
+        >
+        <mat-button-toggle (click)="onBtExport()"
+          >Export to Excel</mat-button-toggle
+        >
+      </mat-button-toggle-group>
+      <!-- <mat-radio-button class="example-margin" value="after">After</mat-radio-button> -->
+      <label class="option" for="selectedOnly"
+        ><input id="selectedOnly" type="checkbox" />Selected Rows Only</label
+      >
+    </div>
+  </div>
+  <div class="grid-wrapper">
+    <ag-grid-angular
+      #agGrid
+      style="width: 500px; height: 500px"
+      class="ag-theme-alpine"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [autoGroupColumnDef]="autoGroupColumnDef"
+      [enableRangeSelection]="true"
+      [allowContextMenuWithControlKey]="true"
+      [getContextMenuItems]="getContextMenuItems"
+      [groupSelectsChildren]="true"
+      [groupDisplayType]="multipleColumns"
+      [animateRows]="true"
+      [suppressRowClickSelection]="true"
+      [singleClickEdit]="singleClickEdit"
+      [undoRedoCellEditing]="true"
+      [rowData]="rowData"
+      rowSelection="multiple"
+      (cellValueChanged)="onCellValueChanged($event)"
+      (rowValueChanged)="onRowValueChanged($event)"
+    >
+    </ag-grid-angular>
+  </div>
+  <!-- | async =>la observables -->
+</div>
